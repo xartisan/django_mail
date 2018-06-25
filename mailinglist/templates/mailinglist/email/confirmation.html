@@ -1,0 +1,10 @@
+{% extends "mailinglist/email/base.html" %}
+
+{% block body %}
+    <h1>确认订阅 {{ mailing_list }}</h1>
+    <p>确认订阅，请点击
+        <a href="{{ confirmation_link }}">这里</a>.</p>
+    <p>如果您不确认的话, 您将不会收到来自{{ mailinglist }}的任何信息</p>
+
+{% endblock %}
+

@@ -1,0 +1,8 @@
+{{ body }}
+
+---
+
+您收到这条信息是因为您已经订阅{{ mailinglist }}.
+
+如果您想取消订阅，请点击{{ unsubscribe_link }}
+

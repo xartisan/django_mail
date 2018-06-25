@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    创建新的邮件列表
+{% endblock %}
+
+{% block body %}
+  <h1 >创建新的邮件列表</h1 >
+  <form method="post" class="col-sm-4" >
+    {% csrf_token %}
+    {{ form | crispy }}
+    <button class="btn btn-primary" type="submit" >提交</button >
+  </form >
+{% endblock %}

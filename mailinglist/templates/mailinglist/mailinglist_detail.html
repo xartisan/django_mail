@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ mailinglist.name }} 管理
+{% endblock %}
+
+{% block body %}
+  <h1 >{{ mailinglist.name }}
+    <a class="btn btn-danger"
+       href="{% url "mailinglist:delete_mailinglist" pk=mailinglist.id %}" >
+      Delete</a >
+  </h1 >
+
+  <div >
+    <a href="{% url "mailinglist:subscribe" mailinglist_pk=mailinglist.id %}" >
+      订阅</a >
+  </div >
+
+  <h2 >消息列表</h2 >
+  <div >
+    <a class="btn btn-primary"
+       href="{% url "mailinglist:create_message" mailinglist_pk=mailinglist.id %}">
+      发送新信息</a >
+  </div >
+  <ul >
+    {% for message in mailinglist.message_set.all %}
+      <li >
+        <a href="{% url "mailinglist:view_message" pk=message.id %}" >{{ message.subject }}</a >
+      </li >
+    {% endfor %}
+  </ul >
+
+  <h2 >订阅者</h2 >
+  <ul >
+    {% for subscriber in mailinglist.subscriber_set.all %}
+      <li >
+        {{ subscriber.email }}
+        {{ subscriber.confirmed|yesno:"已确认,未确认" }}
+        <a href="{% url "mailinglist:unsubscribe" pk=subscriber.id %}" >
+          Unsubscribe
+        </a >
+      </li >
+    {% endfor %}
+  </ul >
+{% endblock %}

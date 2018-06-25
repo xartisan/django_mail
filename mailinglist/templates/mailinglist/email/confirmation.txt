@@ -1,0 +1,8 @@
+你好 {{subscriber.email}},
+
+确认订阅 {{ mailinglist }}.
+
+确认订阅，请点击{{confirmation_link}}.
+
+如果您不确认的话，您将不会收到来自{{ mailinglist }}的信息
+
